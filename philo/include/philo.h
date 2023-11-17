@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:45:12 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/15 17:28:18 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/17 15:59:13 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@
 
 typedef struct s_data
 {
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	time_to_die;
+	pthread_t	philo;
 	
 }	t_data;
 

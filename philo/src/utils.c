@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:52:20 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/15 17:28:00 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/17 16:24:17 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	philo_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	if (str[i] >= 9 && str[i] <= 13 || str[i] == 32)
+	if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '-')
 	{

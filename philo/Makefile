@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/01 15:08:12 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/11/15 16:53:10 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/11/17 16:24:38 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME := philo
 
 CC := cc
 CFLAGS := -Wall -Werror -Wextra -g #gflag for debug
-HEADER := include/philosophers.h
+HEADER := include/philo.h
 INCLUDE := -I include
 OBJDIR = objects
 
-SRC := main.c \
+SRC := 	main.c \
 		utils.c \
 
 vpath %.c	src
@@ -37,12 +37,12 @@ END_COLOUR=\033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "${RED}compiling? ${BOLD_GREEN}completed it mate ${END_COLOUR}"
 
 $(OBJDIR)/%.o: %.c $(HEADER)
 	@mkdir -p $(OBJDIR)
-	@echo "${RED} Socrates.. ${GRAY}Freud..${YELLOW}Davinci.. ${PURPLE}GETTING READY${INTENSE_CYAN}$< ${END_COLOUR}"
+	@echo "${RED} Socrates.. ${GRAY}Freud..${YELLOW}Davinci.. ${PURPLE}GETTING READY..${END_COLOUR}"
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
