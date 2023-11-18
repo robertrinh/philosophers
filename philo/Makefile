@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/01 15:08:12 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/11/17 16:24:38 by qtrinh        ########   odam.nl          #
+#    Updated: 2023/11/18 16:13:49 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ INCLUDE := -I include
 OBJDIR = objects
 
 SRC := 	main.c \
+		parse.c \
+		philo_init.c \
 		utils.c \
 
 vpath %.c	src

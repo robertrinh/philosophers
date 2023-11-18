@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:45:00 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/17 16:26:32 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/18 16:24:33 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,18 @@ static int	error_message(void)
 
 int	main(int ac, char **av)
 {
-	//struct callen;
-	int i = 0;
+	t_data data;
+	
+	memset(&data, 0, sizeof(t_data));
 	if (ac != 5 && ac != 6)
 		error_message();
-	printf("%c\n", av[5][i]);
-	//parse input
+	if (!input_check(av))
+	{
+		printf("Error, input not valid\n");
+		return (EXIT_FAILURE);
+	}
 	//philos innit
 	//params innit?
-	
 	
 	return (EXIT_SUCCESS);
 }

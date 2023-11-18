@@ -6,35 +6,20 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:52:20 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/17 16:24:17 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/18 15:52:40 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	philo_atoi(const char *str)
+void	*philo_calloc(size_t count, size_t size)
 {
-	int	i;
-	int	result;
-	int	sign;
+	void	*ptr;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (str[i])
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + str[i] - '0';
-			i++;
-		}
-	}
-	return (sign * result);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	memset(ptr, 0, count * size);
+	return (ptr);
 }
+

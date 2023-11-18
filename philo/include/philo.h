@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:45:12 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/17 15:59:13 by qtrinh        ########   odam.nl         */
+/*   Updated: 2023/11/18 16:23:18 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PHILO_H
 
 /* memset */
-# include <string.h>
+#include <string.h>
 
 /* printf */
 # include <stdio.h>
@@ -42,15 +42,32 @@
 # define THINK "is thinking"
 # define DIE "died"
 
-typedef struct s_data
+typedef struct	s_data
 {
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	time_to_die;
-	pthread_t	philo;
+	int				philo_n;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				time_to_die;
+	int				max_meal;
+	unsigned long	start_time;
 	
 }	t_data;
 
+typedef struct	s_philo
+{
+	t_data	*data;
+	int		id;
+	int		meal_count;
+	unsigned long	last_ate;
+	bool	eating;
+	pthread_mutex_t	fork_left;
+	pthread_mutex_t	*fork_right;
+	pthread_mutex_t	meal_lock;
+}	t_philo;
+
+/* parsing */
+bool	philo_init(t_data *data, int ac, char **av);
+bool	input_check(char **av);
 int	philo_atoi(const char *str);
 
 #endif
