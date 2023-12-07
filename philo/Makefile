@@ -6,21 +6,22 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/01 15:08:12 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/11/18 16:13:49 by robertrinh    ########   odam.nl          #
+#    Updated: 2023/12/07 17:59:37 by robertrinh    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := philo
 
-CC := cc
+CC := gcc
 CFLAGS := -Wall -Werror -Wextra -g #gflag for debug
 HEADER := include/philo.h
 INCLUDE := -I include
 OBJDIR = objects
 
-SRC := 	main.c \
+SRC := 	clean.c \
+		init_bruv.c \
+		main.c \
 		parse.c \
-		philo_init.c \
 		utils.c \
 
 vpath %.c	src
@@ -44,7 +45,7 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)/%.o: %.c $(HEADER)
 	@mkdir -p $(OBJDIR)
-	@echo "${RED} Socrates.. ${GRAY}Freud..${YELLOW}Davinci.. ${PURPLE}GETTING READY..${END_COLOUR}"
+	@echo "${RED} Socrates.. ${GRAY}Freud..${YELLOW}Davinci.. ${PURPLE}SPAGHETTI MONSTER...${END_COLOUR}"
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/18 15:09:20 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/11/18 16:22:57 by robertrinh    ########   odam.nl         */
+/*   Updated: 2023/12/07 17:44:30 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static bool	philo_isdigit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-int	philo_atoi(const char *str)
+long int	philo_atol(const char *str)
 {
-	int	result;
-	int	sign;
+	long int	result;
+	int			sign;
 
 	sign = 1;
 	result = 0;
@@ -33,7 +33,6 @@ int	philo_atoi(const char *str)
 	}
 	while (philo_isdigit(*str))
 	{
-		if (*str >= '0' && *str <= '9')
 		{
 			result = result * 10 + (*str - '0');
 			str++;
@@ -48,7 +47,7 @@ bool	input_check(char **av)
 	int	j;
 	
 	str = 1;
-	if ((philo_atoi(av[str]) > 2700)) //max threads?
+	if ((philo_atol(av[str]) > 2700)) //max threads?
 		return (false);
 	while (av[str])
 	{

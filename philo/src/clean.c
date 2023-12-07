@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   philo_init.c                                       :+:    :+:            */
+/*   clean.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/11/18 15:56:26 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/11/18 16:13:20 by robertrinh    ########   odam.nl         */
+/*   Created: 2023/12/07 17:38:13 by robertrinh    #+#    #+#                 */
+/*   Updated: 2023/12/07 17:46:08 by robertrinh    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	philo_init(t_data *data, int ac, char **av)
+void	clean_mutex(t_data *data)
 {
-	data->philo_n = philo_atoi(av[1]);
-	data->time_to_die = philo_atoi(av[2]);
-	data->time_to_eat = philo_atoi(av[3]);
-	data->time_to_sleep = philo_atoi(av[4]);
-	if (ac == 6)
+	int	i;
+	
+	i = 0;
+	while (i < data->philo_n)
 	{
-		data->max_meal = philo_atoi(av[5]);
-		if (data->max_meal <= 0)
-			return (false);
+		pthread_mutex_destroy(&data->forks[i]);
+		i++;
 	}
-	else
-		data->max_meal = -1;
-	return (true);
+	free(data->forks);
+	data->forks = NULL; //nodig?
 }
