@@ -6,7 +6,7 @@
 #    By: qtrinh <qtrinh@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/03/01 15:08:12 by qtrinh        #+#    #+#                  #
-#    Updated: 2023/12/07 17:59:37 by robertrinh    ########   odam.nl          #
+#    Updated: 2024/01/03 19:00:16 by qtrinh        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ HEADER := include/philo.h
 INCLUDE := -I include
 OBJDIR = objects
 
-SRC := 	clean.c \
-		init_bruv.c \
+SRC := 	init_bruv.c \
 		main.c \
 		parse.c \
 		utils.c \
