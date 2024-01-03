@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:45:12 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/12/07 17:42:46 by robertrinh    ########   odam.nl         */
+/*   Updated: 2024/01/03 18:57:57 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ typedef struct t_philo	s_philo;
 # define THINK "is thinking"
 # define DIE "died"
 
+typedef struct s_philo	t_philo;
 typedef struct	s_data
 {
+	t_philo			*philo;
 	int				philo_n;
 	int				time_to_eat;
 	int				time_to_sleep;
@@ -53,7 +55,6 @@ typedef struct	s_data
 	int				max_meal;
 	unsigned long	start_time;
 	pthread_mutex_t	*forks;
-	struct s_philo			*philo;
 }	t_data;
 
 typedef struct	s_philo
@@ -69,13 +70,17 @@ typedef struct	s_philo
 }	t_philo;
 
 /* parsing */
-bool	input_check(char **av);
 bool	data_init(t_data *data, int ac, char **av);
+bool	input_check(char **av);
+long int	philo_atol(const char *str);
+bool	philo_init(t_data *data);
 bool	init_bruv(t_data *data, int ac, char **av);
 
-long int	philo_atol(const char *str);
 void	*philo_calloc(size_t count, size_t size);
 
-void	clean_mutex(t_data *data);
+/* free */
+void	free_structs(t_data *data);
+void	free_forks(t_data *data, int i);
+
 
 #endif

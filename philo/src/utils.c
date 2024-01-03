@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:52:20 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/11/18 15:52:40 by robertrinh    ########   odam.nl         */
+/*   Updated: 2024/01/03 18:59:02 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,20 @@ void	*philo_calloc(size_t count, size_t size)
 	return (ptr);
 }
 
+void	free_forks(t_data *data, int i)
+{
+	while (i < data->philo_n)
+	{
+		pthread_mutex_destroy(&data->forks[i]);
+		i--;
+	}
+	free(data->forks);
+}
+
+void	free_structs(t_data *data)
+{
+	//destroy mutexes
+	free(data->philo);
+	free(data->forks);
+	free(data);
+}

@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/18 15:09:20 by robertrinh    #+#    #+#                 */
-/*   Updated: 2023/12/07 17:44:30 by robertrinh    ########   odam.nl         */
+/*   Updated: 2024/01/03 18:58:53 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ long int	philo_atol(const char *str)
 
 	sign = 1;
 	result = 0;
-	if ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
 	if (*str == '-')
 	{
 		sign *= -1;
@@ -33,10 +31,8 @@ long int	philo_atol(const char *str)
 	}
 	while (philo_isdigit(*str))
 	{
-		{
 			result = result * 10 + (*str - '0');
 			str++;
-		}
 	}
 	return (sign * result);
 }
@@ -47,8 +43,6 @@ bool	input_check(char **av)
 	int	j;
 	
 	str = 1;
-	if ((philo_atol(av[str]) > 2700)) //max threads?
-		return (false);
 	while (av[str])
 	{
 		j = 0;
@@ -57,7 +51,10 @@ bool	input_check(char **av)
 		while (av[str][j])
 		{
 			if (!philo_isdigit(av[str][j]))
+			{
+				write(2, "input invalid bro\n", 19);
 				return (false);
+			}
 			j++;
 		}
 		str++;

@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:45:00 by qtrinh        #+#    #+#                 */
-/*   Updated: 2023/12/07 18:00:20 by robertrinh    ########   odam.nl         */
+/*   Updated: 2024/01/03 18:59:08 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,13 @@ static int	error_message(void)
 int	main(int ac, char **av)
 {
 	t_data *data;
-	
+
+	data = NULL;
 	if (ac != 5 && ac != 6)
 		error_message();
-	data = malloc(sizeof(t_data));
-	if (!data)
-		return (printf("struct malloc error"), EXIT_FAILURE);
-	memset(data, 0, sizeof(t_data));
 	if (!init_bruv(data, ac, av))
-		return(free(data), 1);
-	// if (!input_check(av))
-	// {
-	// 	printf("Error, input not valid\n");
-	// 	return (EXIT_FAILURE);
-	// }
-	//philos innit
-	//params innit?
-	//monitoring
-	free(data);
+		return (EXIT_FAILURE);
+	//TODO thread, monitor, join?
+	free(data); //moet ik alles free?
 	return (EXIT_SUCCESS);
 }
