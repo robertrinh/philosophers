@@ -6,7 +6,7 @@
 /*   By: robertrinh <robertrinh@student.codam.nl      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/18 15:56:26 by robertrinh    #+#    #+#                 */
-/*   Updated: 2024/01/03 18:58:22 by qtrinh        ########   odam.nl         */
+/*   Updated: 2024/01/04 14:35:44 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,15 @@ bool	data_init(t_data *data, int ac, char **av)
 	data = philo_calloc(sizeof(t_data), 1);
 	if (!data)
 	{
-		write(2, "data calloc fail", 17);
+		write(2, "data calloc fail\n", 18);
 		return (false);
 	}
 	data->philo_n = philo_atol(av[1]);
+	if (data->philo_n > 200)
+	{
+		write(2, "max philo is 200\n", 18);
+		return (false);
+	}
 	if (!forks_init(data))
 		return (free(data), false);
 	//TODO data mutex check?

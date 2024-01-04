@@ -6,7 +6,7 @@
 /*   By: qtrinh <qtrinh@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 16:45:00 by qtrinh        #+#    #+#                 */
-/*   Updated: 2024/01/03 18:59:08 by qtrinh        ########   odam.nl         */
+/*   Updated: 2024/01/04 16:57:39 by qtrinh        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,30 @@ static int	error_message(void)
 	return(EXIT_FAILURE);
 }
 
+int	run_simu(t_data *data)
+{
+	int	threads;
+
+	threads = 0;
+	//create threads
+	//join threads
+	while (threads < data->philo_n)
+	{
+		
+	}
+	free(data); //moet ik alles free?
+	return (EXIT_SUCCESS);
+}
+
 int	main(int ac, char **av)
 {
 	t_data *data;
 
 	data = NULL;
 	if (ac != 5 && ac != 6)
-		error_message();
+		return (error_message());
 	if (!init_bruv(data, ac, av))
 		return (EXIT_FAILURE);
 	//TODO thread, monitor, join?
-	free(data); //moet ik alles free?
-	return (EXIT_SUCCESS);
+	return (run_simu(data));
 }
